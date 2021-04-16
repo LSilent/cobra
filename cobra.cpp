@@ -128,7 +128,8 @@ Vector4 TransformDir (const Vector4 &b, const Matrix4 &mat) {
 } // using matrix to transform a direction.
 
 Matrix4 CreateProjectionMatrix (float hfov, float ratio, float n, float f) {
-	float r = n * tan (hfov * 0.5f), l = -r, b = -r / ratio, t = r / ratio;
+	//float r = n * tan (hfov * 0.5f), l = -r, b = -r / ratio, t = r / ratio; //origin
+	float t = n * tan(hfov * 0.5f), b = -t, l = -t * ratio, r = t * ratio;    // new
 	Matrix4 mat;
 	mat.m[0][0] = 2 * n / (r - l); mat.m[0][1] = 0.0f; mat.m[0][2] = 0.0f; mat.m[0][3] = 0.0f;
 	mat.m[1][0] = 0.0f; mat.m[1][1] = 2 * n / (t - b); mat.m[1][2] = 0.0f; mat.m[1][3] = 0.0f;
