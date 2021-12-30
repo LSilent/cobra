@@ -12,6 +12,7 @@
 *.opendb
 *.vcxproj.user
 .vs
+*.sdf
 
 # Precompiled Headers
 *.gch
@@ -44,6 +45,5 @@
 x86
 Debug
 Release
-screenshot.bmp
 cobra
 cobra.exe
