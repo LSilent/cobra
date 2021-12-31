@@ -10,7 +10,6 @@
 *.ilk
 *.db
 *.opendb
-*.vcxproj.user
 .vs
 *.sdf
 
