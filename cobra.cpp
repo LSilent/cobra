@@ -152,6 +152,12 @@ Matrix4 CreateViewMatrix (const Vector4 &look, const Vector4 &at, const Vector4 
 Matrix4 CreateModelMatrix (const Vector4 &translate) {
 	Matrix4 mat;
 	mat.m[3][0] = translate.x; mat.m[3][1] = translate.y; mat.m[3][2] = translate.z;
+	/*
+	mat.m[0][0] = (float)std::cos(M_PI / 3.0f);
+	mat.m[2][0] = (float)std::sin(M_PI / 3.0f);
+	mat.m[0][2] = (float)-std::sin(M_PI / 3.0f);
+	mat.m[2][2] = (float)std::cos(M_PI / 3.0f);
+	*/
 	return mat;
 } // model(world) matrix, now we only support translate. rotate/scale is NOT supported.
 
@@ -469,12 +475,6 @@ int main () {
 	// Model (filepath, position, material)
 	Model sphere ("res/sphere", { 2.5f, 0.5f, 1.5f }, { 0.1f, 1.0f, 0.5f });
 	renderer.DrawModel (sphere, true, false);
-	Model bunny ("res/bunny", { 0.0f, 0.0f, 0.0f }, { 0.1f, 0.8f, 0.7f });
-	renderer.DrawModel (bunny, true, false);
-	Model cube ("res/cube", { -2.0f, 0.0f, 2.0f }, { 0.3f, 0.8f, 0.8f });
-	renderer.DrawModel (cube, true, false);
-	Model cubeFrame ("res/cube", { 4.0f, 1.8f, -2.2f }, { 0.5f, 0.8f, 0.8f });
-	renderer.DrawModel (cubeFrame, false, true);
 
 	// save the frame buffer to a bmp file
 	SaveBmp (renderer.frameBuffer, WIDTH, HEIGHT, "screenshot.bmp");
